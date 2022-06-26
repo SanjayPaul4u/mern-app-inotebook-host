@@ -12,8 +12,8 @@ const Signup = (props) => {
 
   // use of useHistory
   const navigate = useNavigate();
-  const port = process.env.PORT || 5555
-  const host = `http://localhost:${port}`
+  // const port = process.env.PORT || 5555
+  // const host = `http://localhost:${port}`
 
   // handle submit 📌
   const handleSubmit = async (e) => {
@@ -23,7 +23,7 @@ const Signup = (props) => {
 
     if (c_password === password) {
       const response = await fetch(
-        `${host}/api/auth/createuser`,
+        `https://inotebbook.herokuapp.com/api/auth/createuser`,
         {
           method: "POST",
           headers: {

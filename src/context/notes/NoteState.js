@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import NoteContext from './noteContext';
 
 const NoteState = (props)=>{
-  const port = process.env.PORT || 5555
-  const host = `http://localhost:${port}` ;
+  // const port = process.env.PORT || 5555
+  // const host = `http://localhost:${port}` ;
     const notesInitial = []
     const [notes, setNotes] = useState(notesInitial);
 
@@ -11,7 +11,7 @@ const NoteState = (props)=>{
     // get all note 🔴
     const getAllNote = async()=>{
       // Api call
-      const response = await fetch(`${host}/api/notes/fetchallnotes`, {
+      const response = await fetch(`https://inotebbook.herokuapp.com/api/notes/fetchallnotes`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ const NoteState = (props)=>{
     // add a note 🔴
       const addNote = async(title, description, tag)=>{
         // Api call
-        const response = await fetch(`${host}/api/notes/addnote`, {
+        const response = await fetch(`https://inotebbook.herokuapp.com/api/notes/addnote`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ const NoteState = (props)=>{
     // delete a note 🔴
       const deleteNote = async(id)=>{
          // Api call
-         const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
+         const response = await fetch(`https://inotebbook.herokuapp.com/api/notes/deletenote/${id}`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ const NoteState = (props)=>{
     // edit(update) a note 🔴 TODO-> NOT FULFILL EDITNOTE
     const editNote = async(id, title, description, tag)=>{
         // Api call
-        const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
+        const response = await fetch(`https://inotebbook.herokuapp.com/api/notes/updatenote/${id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',

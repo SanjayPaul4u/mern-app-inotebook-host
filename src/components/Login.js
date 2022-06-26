@@ -4,8 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 const Login = (props) => {
-  const port = process.env.PORT || 5555
-  const host = `http://localhost:${port}`
+  // const port = process.env.PORT || 5555
+  // const host = `http://localhost:${port}`
 // use state 📌
 const [credentials, setCredentials] = useState({email: "", password: ""});
 
@@ -16,7 +16,7 @@ const navigate = useNavigate();
 const handleSubmit = async (e) => {
     e.preventDefault();
     // api call
-    const response = await fetch(`${host}/api/auth/login`, {
+    const response = await fetch(`https://inotebbook.herokuapp.com/api/auth/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
